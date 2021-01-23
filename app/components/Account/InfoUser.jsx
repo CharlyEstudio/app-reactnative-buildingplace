@@ -33,7 +33,7 @@ export default function InfoUser({userInfo: { uid, displayName, email, photoURL 
                     await updatePhotoUrl();
                     toastRef.current.show('Avatar Actualizado');
                 } catch (e) {
-                    console.log(e);
+                    console.log('InfoUser::uploadImage/updatePhotoUrl', e);
                     toastRef.current.show('Error al actualizar el avatar');
                 }
             }

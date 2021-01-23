@@ -40,6 +40,7 @@ export default function RegisterForm({toastRef}) {
                 setLoading(false);
                 navigation.navigate("account");
             } catch (e) {
+                console.log('RegisterForm::createUserWithEmailAndPassword', e);
                 setLoading(false);
                 toastRef.current.show(`${e}`);
             }
@@ -70,6 +71,7 @@ export default function RegisterForm({toastRef}) {
             <Input
                 placeholder="Contraseña"
                 containerStyle={styles.inputForm}
+                password={true}
                 secureTextEntry={showPassword ? false : true}
                 onChange={e => onChange(e, "password")}
                 rightIcon={
@@ -84,6 +86,7 @@ export default function RegisterForm({toastRef}) {
             <Input
                 placeholder="Repetir Contraseña"
                 containerStyle={styles.inputForm}
+                password={true}
                 secureTextEntry={showRepeatPassword ? false : true}
                 onChange={e => onChange(e, "repeatPassword")}
                 rightIcon={
