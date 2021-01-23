@@ -43,3 +43,15 @@ yarn add lodash
 ```
 yarn add react-native-easy-toast@~1.2.0
 ```
+
+### Librería para permiso de Fotos y Galería
+
+```
+yarn add expo-permissions@~10.0.0
+```
+
+### Librearía para ImagePicker
+
+```
+yarn add expo-image-picker@~9.2.0
+```

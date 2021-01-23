@@ -20,10 +20,6 @@ export default function LoginForm({toastRef}) {
 
     const navigation = useNavigation();
 
-    useEffect(() => {
-        LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
-    }, []);
-
     const onChange = (e, type) => {
         setFormData({
             ...formData,

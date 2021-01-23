@@ -21,10 +21,6 @@ export default function RegisterForm({toastRef}) {
 
     const navigation = useNavigation();
 
-    useEffect(() => {
-        LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
-    }, []);
-
     const onSubmit = async () => {
         if (isEmpty(formData.email) || isEmpty(formData.password) || isEmpty(formData.repeatPassword)) {
             toastRef.current.show('Todos los campos son obligatorios');
