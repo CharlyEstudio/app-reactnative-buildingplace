@@ -59,5 +59,5 @@ yarn add expo-image-picker@~9.2.0
 ### SQLite
 
 ```
-yarn add expo-sqlite
+yarn add expo-sqlite@~8.5.0
 ```
