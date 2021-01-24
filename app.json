@@ -34,7 +34,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Opciones de la cuenta listo",
+    "description": "SQLite instalado y funcionando, tabla de pedidos agregado",
     "githubUrl": "https://github.com/CharlyEstudio/app-reactnative-restaurants"
   }
 }
