@@ -55,3 +55,9 @@ yarn add expo-permissions@~10.0.0
 ```
 yarn add expo-image-picker@~9.2.0
 ```
+
+### SQLite
+
+```
+yarn add expo-sqlite
+```
