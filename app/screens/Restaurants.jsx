@@ -23,15 +23,23 @@ export default function Restaurants() {
     }, [attach]);
 
     const addSalesOrder = async () => {
+        const cliente_id = Math.random();
+        const numero = Math.random();
+        const subtotal = Math.random();
+        const ivaConcepto = 0.16;
+        const iva = subtotal * ivaConcepto;
+        const total = subtotal + iva;
+        const asesor = Math.random();
         const datos = {
-            cliente_id: 1,
+            cliente_id,
+            numero: `PED-${numero}`,
             fecha: Date.now(),
-            subtotal: 2786.32,
-            iva: (2786.32 * .16),
-            total: (2786.32 + (2786.32 * .16)),
+            subtotal,
+            iva,
+            total,
             enviado: 0,
             procesado: 0,
-            asesor: 1
+            asesor
         };
         const resp = await newSalesOrder(dbSQLite, datos);
         if (resp) {

@@ -30,6 +30,7 @@ function createTableSalesOrder(db) {
                 table_pedidos(
                     pedidoId INTEGER PRIMARY KEY AUTOINCREMENT,
                     clienteId INTEGER KEY,
+                    numero TEXT,
                     fecha INTEGER,
                     subtotal REAL,
                     iva REAL,
@@ -97,6 +98,7 @@ export function newSalesOrder(db, datos) {
                         `INSERT INTO
                             table_pedidos (
                                 clienteId,
+                                numero,
                                 fecha,
                                 subtotal,
                                 iva,
@@ -117,10 +119,12 @@ export function newSalesOrder(db, datos) {
                                 ?,
                                 ?,
                                 ?,
+                                ?,
                                 ?
                             )`,
                         [
                             cliente_id,
+                            numero,
                             fecha,
                             subtotal,
                             iva,
