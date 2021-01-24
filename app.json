@@ -34,6 +34,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Rutas, login y registro listo."
+    "description": "Opciones de la cuenta listo",
+    "githubUrl": "https://github.com/CharlyEstudio/app-reactnative-restaurants"
   }
 }
