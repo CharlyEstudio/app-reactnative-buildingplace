@@ -1,4 +1,6 @@
-# 5 Tenedores
+# Building Place
+
+App dirigido al sector de construcción, remodelación y sus áreas; para, el acercamiento de negocios que ofrecen productos y/o servicios para los profesionistas.
 
 ## Instalación
 

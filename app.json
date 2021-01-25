@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "5-tenedores",
-    "slug": "5-tenedores",
+    "name": "building-place",
+    "slug": "building-place",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -34,7 +34,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "SQLite instalado y funcionando, tabla de pedidos agregado",
+    "description": "Error: No existe el campo \"numero\", arreglado.",
     "githubUrl": "https://github.com/CharlyEstudio/app-reactnative-restaurants"
   }
 }
