@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, SectionList, TouchableOpacity } from 'react-native';
-import { ListItem, Button } from 'react-native-elements';
-import { map } from 'lodash';
+import { StyleSheet, Text, View, VirtualizedList, TouchableOpacity } from 'react-native';
+import { Button } from 'react-native-elements';
 
 // SQLite
 import { DataBase, allSalesOrder, newSalesOrder, deleteTable } from '../db/sqlite';
@@ -21,24 +20,16 @@ export default function SalesOrder() {
         fetchData();
     }, [attach]);
 
-    const DATA = [
-        {
-          title: "Main dishes",
-          data: ["Pizza", "Burger", "Risotto"]
-        },
-        {
-          title: "Sides",
-          data: ["French Fries", "Onion Rings", "Fried Shrimps"]
-        },
-        {
-          title: "Drinks",
-          data: ["Water", "Coke", "Beer"]
-        },
-        {
-          title: "Desserts",
-          data: ["Cheese Cake", "Ice Cream"]
+    const getItem = (data, index) => {
+        return {
+          id: Math.random().toString(12).substring(0),
+          order: data[index]
         }
-    ];
+    }
+
+    const getItemCount = (data) => {
+        return data.length;
+    }
 
     const addSalesOrder = async () => {
         const cliente_id = Math.random();
@@ -84,20 +75,20 @@ export default function SalesOrder() {
             />
             {
                 salesOrder.length > 0 &&
-                    <SectionList
-                        sections={DATA}
-                        keyExtractor={(item, index) => item + index}
-                        renderItem={({numero}) => (
+                    <VirtualizedList
+                        data={salesOrder}
+                        initialNumToRender={4}
+                        renderItem={({ item: {order} }) => (
                             <TouchableOpacity
                                 style={styles.button}
-                                onPress={() => console.log(`Ver Pedido ${numero}`)}
+                                onPress={() => console.log(`Ver Pedido ${order.numero}:`, order)}
                             >
-                                <Text>{numero}</Text>
+                                <Text>{order.numero}</Text>
                             </TouchableOpacity>
                         )}
-                        renderSectionHeader={({section: {numero}}) => (
-                            <Text style={styles.header}>{numero}</Text>
-                        )}
+                        keyExtractor={({key}) => key}
+                        getItemCount={getItemCount}
+                        getItem={getItem}
                     />
             }
         </View>
