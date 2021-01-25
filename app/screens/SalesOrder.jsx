@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SectionList, TouchableOpacity } from 'react-native';
 import { ListItem, Button } from 'react-native-elements';
 import { map } from 'lodash';
 
@@ -20,6 +20,25 @@ export default function SalesOrder() {
         }
         fetchData();
     }, [attach]);
+
+    const DATA = [
+        {
+          title: "Main dishes",
+          data: ["Pizza", "Burger", "Risotto"]
+        },
+        {
+          title: "Sides",
+          data: ["French Fries", "Onion Rings", "Fried Shrimps"]
+        },
+        {
+          title: "Drinks",
+          data: ["Water", "Coke", "Beer"]
+        },
+        {
+          title: "Desserts",
+          data: ["Cheese Cake", "Ice Cream"]
+        }
+    ];
 
     const addSalesOrder = async () => {
         const cliente_id = Math.random();
@@ -65,13 +84,21 @@ export default function SalesOrder() {
             />
             {
                 salesOrder.length > 0 &&
-                map(salesOrder, (order, index) => (
-                    <ListItem
-                        key={index}
-                        title={order.numero}
-                        containerStyle={styles.menuItem}
+                    <SectionList
+                        sections={DATA}
+                        keyExtractor={(item, index) => item + index}
+                        renderItem={({numero}) => (
+                            <TouchableOpacity
+                                style={styles.button}
+                                onPress={() => console.log(`Ver Pedido ${numero}`)}
+                            >
+                                <Text>{numero}</Text>
+                            </TouchableOpacity>
+                        )}
+                        renderSectionHeader={({section: {numero}}) => (
+                            <Text style={styles.header}>{numero}</Text>
+                        )}
                     />
-                ))
             }
         </View>
     )
@@ -88,8 +115,13 @@ async function getAllSalesOrder() {
 };
 
 const styles = StyleSheet.create({
-    menuItem: {
-        borderBottomWidth: 1,
-        borderBottomColor: '#e3e3e3'
-    }
+    header: {
+        fontSize: 32,
+        backgroundColor: "#fff"
+    },
+    button: {
+        alignItems: "center",
+        backgroundColor: "#DDDDDD",
+        padding: 10
+    },
 })
