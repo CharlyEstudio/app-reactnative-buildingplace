@@ -61,6 +61,16 @@ export function deleteTable(db, table) {
                 [],
                 function(tx, resDelete) {
                     console.log(`deleteTable::RES::DELETE ${table}`, resDelete);
+                    txn.executeSql(
+                        'DROP TABLE IF EXISTS table_pedidos',
+                        [],
+                        function(tx, resDrop) {
+                            console.log(`deleteTable::RES::DROP ${table}`, resDrop);
+                        },
+                        function(tx, errorDrop) {
+                            console.log(`deleteTable::ERROR::DROP ${table}`, errorDrop);
+                        }
+                    );
                     resolve(resDelete);
                 },
                 function(tx, error) {
@@ -75,6 +85,7 @@ export function deleteTable(db, table) {
 export function newSalesOrder(db, datos) {
     const {
         cliente_id,
+        numero,
         fecha,
         subtotal,
         iva,

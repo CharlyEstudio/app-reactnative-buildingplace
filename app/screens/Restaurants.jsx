@@ -69,7 +69,7 @@ export default function Restaurants() {
                 map(salesOrder, (order, index) => (
                     <ListItem
                         key={index}
-                        title={order.asesor}
+                        title={order.numero}
                         containerStyle={styles.menuItem}
                     />
                 ))
@@ -79,9 +79,13 @@ export default function Restaurants() {
 }
 
 async function getAllSalesOrder() {
-    const resp = await allSalesOrder(dbSQLite);
-    const { _array } = resp;
-    return _array;
+    try {
+        const resp = await allSalesOrder(dbSQLite);
+        const { _array } = resp;
+        return _array;
+    } catch (e) {
+        return [];
+    }
 };
 
 const styles = StyleSheet.create({
