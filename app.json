@@ -34,7 +34,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Error: No existe el campo \"numero\", arreglado.",
+    "description": "Cambio de negocio.",
     "githubUrl": "https://github.com/CharlyEstudio/app-reactnative-restaurants"
   }
 }
