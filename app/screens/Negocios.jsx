@@ -8,7 +8,7 @@ import { DataBase, allSalesOrder, newSalesOrder, deleteTable } from '../db/sqlit
 
 const dbSQLite = new DataBase().db;
 
-export default function Restaurants() {
+export default function Negocios() {
     const [attach, setAttach] = useState(false);
     const [salesOrder, setSalesOrder] = useState([]);
 
@@ -55,7 +55,7 @@ export default function Restaurants() {
 
     return (
         <View>
-            <Text>Restaurants</Text>
+            <Text>Negocios</Text>
             <Button
                 title="Agregar Pedido"
                 onPress={addSalesOrder}

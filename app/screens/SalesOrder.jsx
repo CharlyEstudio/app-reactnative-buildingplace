@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-export default function TopRestaurants() {
+export default function SalesOrder() {
     return (
         <View>
-            <Text>Top Restaurants</Text>
+            <Text>Ordenes de Pedidos</Text>
         </View>
     )
 }

@@ -1,16 +1,16 @@
 import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
-import Favorites from "../../screens/Favorites";
+import SalesOrder from "../../screens/SalesOrder";
 
 const Stack = createStackNavigator();
 
-export default function FavoritesStack() {
+export default function SalesOrderStack() {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                name="favorites"
-                component={Favorites}
-                options={{ title: "Restaurantes Favoritos" }}
+                name="sales-order"
+                component={SalesOrder}
+                options={{ title: "Mis Pedidos" }}
             />
         </Stack.Navigator>
     )
