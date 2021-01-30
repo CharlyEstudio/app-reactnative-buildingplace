@@ -21,10 +21,6 @@ export default function RegisterForm({toastRef}) {
 
     const navigation = useNavigation();
 
-    useEffect(() => {
-        LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
-    }, []);
-
     const onSubmit = async () => {
         if (isEmpty(formData.email) || isEmpty(formData.password) || isEmpty(formData.repeatPassword)) {
             toastRef.current.show('Todos los campos son obligatorios');
@@ -44,6 +40,7 @@ export default function RegisterForm({toastRef}) {
                 setLoading(false);
                 navigation.navigate("account");
             } catch (e) {
+                console.log('RegisterForm::createUserWithEmailAndPassword', e);
                 setLoading(false);
                 toastRef.current.show(`${e}`);
             }
@@ -74,6 +71,7 @@ export default function RegisterForm({toastRef}) {
             <Input
                 placeholder="Contraseña"
                 containerStyle={styles.inputForm}
+                password={true}
                 secureTextEntry={showPassword ? false : true}
                 onChange={e => onChange(e, "password")}
                 rightIcon={
@@ -88,6 +86,7 @@ export default function RegisterForm({toastRef}) {
             <Input
                 placeholder="Repetir Contraseña"
                 containerStyle={styles.inputForm}
+                password={true}
                 secureTextEntry={showRepeatPassword ? false : true}
                 onChange={e => onChange(e, "repeatPassword")}
                 rightIcon={

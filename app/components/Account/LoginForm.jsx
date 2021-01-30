@@ -20,10 +20,6 @@ export default function LoginForm({toastRef}) {
 
     const navigation = useNavigation();
 
-    useEffect(() => {
-        LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
-    }, []);
-
     const onChange = (e, type) => {
         setFormData({
             ...formData,
@@ -46,6 +42,7 @@ export default function LoginForm({toastRef}) {
                 setLoading(false);
                 navigation.navigate("account");
             } catch (e) {
+                console.log('LoginForm::signInWithEmailAndPassword', e);
                 setLoading(false);
                 toastRef.current.show(`Usuario y/o contraseña incorrecta`);
             }
@@ -69,6 +66,7 @@ export default function LoginForm({toastRef}) {
             <Input
                 placeholder="Contraseña"
                 containerStyle={styles.inputForm}
+                password={true}
                 secureTextEntry={showPassword ? false : true}
                 onChange={e => onChange(e, "password")}
                 rightIcon={

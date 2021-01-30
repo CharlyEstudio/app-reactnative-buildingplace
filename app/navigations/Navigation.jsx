@@ -4,9 +4,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from 'react-native-elements';
 
 // Stacks
-import RestaurantsStack from "./Stacks/RestaurantsStack";
-import FavoritesStack from "./Stacks/FavoritesStack";
-import TopRestaurantsStack from "./Stacks/TopRestaurantsStack";
+import NegociosStack from "./Stacks/NegociosStack";
+import SalesOrderStack from "./Stacks/SalesOrderStack";
+import TopNegociosStack from "./Stacks/TopNegociosStack";
 import SearchStack from "./Stacks/SearchStack";
 import AccountStack from "./Stacks/AccountStack";
 
@@ -16,25 +16,25 @@ export default function navigation() {
     return (
         <NavigationContainer>
             <Tab.Navigator
-                initialRouteName="restaurants"
+                initialRouteName="negocios"
                 tabBarOptions={{ inactiveTintColor: "#646464", activeTintColor: "#00a680" }}
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ color }) => screenOptions(route, color)
                 })}
             >
                 <Tab.Screen
-                    name="restaurants"
-                    component={RestaurantsStack}
-                    options={{ title: "Restaurantes" }}
+                    name="negocios"
+                    component={NegociosStack}
+                    options={{ title: "Negocios" }}
                 />
                 <Tab.Screen
-                    name="favorites"
-                    component={FavoritesStack}
-                    options={{ title: "Favoritos" }}
+                    name="sales-order"
+                    component={SalesOrderStack}
+                    options={{ title: "Mis Pedidos" }}
                 />
                 <Tab.Screen
-                    name="top-restaurants"
-                    component={TopRestaurantsStack}
+                    name="top-negocios"
+                    component={TopNegociosStack}
                     options={{ title: "Top 5" }}
                 />
                 <Tab.Screen
@@ -56,13 +56,13 @@ function screenOptions(route, color) {
     let iconName;
 
     switch (route.name) {
-        case 'restaurants':
+        case 'negocios':
             iconName = "compass-outline"
             break;
-        case 'favorites':
+        case 'sales-order':
             iconName = "heart-outline"
             break;
-        case 'top-restaurants':
+        case 'top-negocios':
             iconName = "star-outline"
             break;
         case 'search':

@@ -1,4 +1,6 @@
-# 5 Tenedores
+# Building Place
+
+App dirigido al sector de construcción, remodelación y sus áreas; para, el acercamiento de negocios que ofrecen productos y/o servicios para los profesionistas.
 
 ## Instalación
 
@@ -42,4 +44,22 @@ yarn add lodash
 
 ```
 yarn add react-native-easy-toast@~1.2.0
+```
+
+### Librería para permiso de Fotos y Galería
+
+```
+yarn add expo-permissions@~10.0.0
+```
+
+### Librearía para ImagePicker
+
+```
+yarn add expo-image-picker@~9.2.0
+```
+
+### SQLite
+
+```
+yarn add expo-sqlite@~8.5.0
 ```

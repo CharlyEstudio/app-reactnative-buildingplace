@@ -1,12 +1,13 @@
 import firebase from "firebase/app";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBE9hfgHAeamDe0DfR8a1VNHxoMsDjIdRc",
-    authDomain: "tenedores-29665.firebaseapp.com",
-    projectId: "tenedores-29665",
-    storageBucket: "tenedores-29665.appspot.com",
-    messagingSenderId: "954173533283",
-    appId: "1:954173533283:web:4712b811471b650c621c56"
+    apiKey: "AIzaSyC0uQqhGgHow7lISx-0cm2M0IxYPvqjLxU",
+    authDomain: "building-place.firebaseapp.com",
+    projectId: "building-place",
+    storageBucket: "building-place.appspot.com",
+    messagingSenderId: "509944076446",
+    appId: "1:509944076446:web:4996f618e2db469b70038f",
+    measurementId: "G-NCDF5JL8B0"
 };
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
