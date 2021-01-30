@@ -34,7 +34,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Cambio de negocio.",
+    "description": "Probando VirtualizedList en Pedidos",
     "githubUrl": "https://github.com/CharlyEstudio/app-reactnative-restaurants"
   }
 }
