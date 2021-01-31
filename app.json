@@ -34,7 +34,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Probando VirtualizedList en Pedidos",
+    "description": "Pantalla de Levantar Pedido",
     "githubUrl": "https://github.com/CharlyEstudio/app-reactnative-restaurants"
   }
 }
