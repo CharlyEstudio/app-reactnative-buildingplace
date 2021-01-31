@@ -92,10 +92,14 @@ export default function AddSalesOrderForm({ toastRef, setIsLoading, navigation }
             });
             setListOrder(newList);
         } else {
-            const newListRemove = listOrder.filter(e => e.idProduct !== item.idProduct);
-            setListOrder(newListRemove);
+            removeItemofListOrder(item);
         }
     };
+
+    const removeItemofListOrder = item => {
+        const newListRemove = listOrder.filter(e => e.idProduct !== item.idProduct);
+        setListOrder(newListRemove);
+    }
 
     const addSalesOrder = async () => {
         const cliente_id = Math.random();
@@ -160,6 +164,7 @@ export default function AddSalesOrderForm({ toastRef, setIsLoading, navigation }
                     <ListItemsOrder
                         listOrder={listOrder}
                         modifyQuantityItem={modifyQuantityItem}
+                        removeItemofListOrder={removeItemofListOrder}
                     />
                 </View>
             }

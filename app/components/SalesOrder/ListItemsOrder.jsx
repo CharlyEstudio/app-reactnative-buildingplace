@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-export default function ListItemsOrder({ listOrder, modifyQuantityItem }) {
+export default function ListItemsOrder({ listOrder, modifyQuantityItem, removeItemofListOrder }) {
     return (
         <FlatList
             data={listOrder}
@@ -40,7 +40,7 @@ export default function ListItemsOrder({ listOrder, modifyQuantityItem }) {
                             type="material-community"
                             name="delete"
                             color="red"
-                            onPress={() => console.log('Eliminar')}
+                            onPress={() => removeItemofListOrder(item)}
                         />
                     </View>
                 </View>
