@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Input, Icon } from 'react-native-elements';
+
+// Firebase
+import * as firebase from 'firebase';
 
 // SQLite
 import { DataBase, newSalesOrder, deleteTable } from '../../db/sqlite';
@@ -17,19 +20,18 @@ export default function AddSalesOrderForm({ toastRef, setIsLoading, navigation }
     // Todos los productos (Cache o Servidor Directo)
     const [products, setProducts] = useState(productsJson.products);
 
-    // const [attach, setAttach] = useState(false);
-
     // Buscar en Input
     const [searchProduct, setSearchProduct] = useState([]);
     const [textSearch, setTextSearch] = useState('');
 
     // Estado de boton agregar
     const [isItem, setIsItem] = useState(true);
+    const [isOrder, setIsOrder] = useState(true);
 
     // Order
     const [itemOrder, setItemOrder] = useState(valueDefaultItem());
     const [listOrder, setListOrder] = useState([]);
-    const [order, setOrder] = useState(valueDefault());
+    const [order, setOrder] = useState(prepareOrder());
 
     const searchProductForDescription = text => {
         // Meter un Loading cuando se haga consulta a servidor
@@ -75,6 +77,7 @@ export default function AddSalesOrderForm({ toastRef, setIsLoading, navigation }
         setListOrder([...listOrder, itemOrder]);
         setItemOrder(valueDefaultItem);
         setIsItem(true);
+        setIsOrder(false);
     };
 
     const modifyQuantityItem = (item, quantity) => {
@@ -98,11 +101,18 @@ export default function AddSalesOrderForm({ toastRef, setIsLoading, navigation }
 
     const removeItemofListOrder = item => {
         const newListRemove = listOrder.filter(e => e.idProduct !== item.idProduct);
-        setListOrder(newListRemove);
+        if (newListRemove.length >= 1) {
+            setListOrder(newListRemove);
+        } else {
+            setListOrder([]);
+            setIsOrder(true);
+        }
     }
 
     const addSalesOrder = async () => {
-        const cliente_id = Math.random();
+        console.log(order);
+        setIsOrder(true);
+        /*const cliente_id = Math.random();
         const numero = Math.random();
         const subtotal = Math.random();
         const ivaConcepto = 0.16;
@@ -120,7 +130,7 @@ export default function AddSalesOrderForm({ toastRef, setIsLoading, navigation }
             procesado: 0,
             asesor
         };
-        const resp = await newSalesOrder(dbSQLite, datos);
+        const resp = await newSalesOrder(dbSQLite, datos);*/
         /*if (resp) {
             setAttach(true);
         }*/
@@ -168,6 +178,13 @@ export default function AddSalesOrderForm({ toastRef, setIsLoading, navigation }
                     />
                 </View>
             }
+            <TouchableOpacity
+                disabled={isOrder}
+                onPress={addProduct}
+                style={isOrder ? styles.buttonDis : styles.button}
+            >
+                <Text style={isOrder ? styles.btnTextDis : styles.btnText}>Levantar Pedido</Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -255,21 +272,6 @@ const styles = StyleSheet.create({
     }
 });
 
-function valueDefault() {
-    return {
-        cliente_id: 0,
-        numero: '',
-        fecha: null,
-        subtotal: 0,
-        iva: 0,
-        total: 0,
-        enviado: 0,
-        procesado: 0,
-        asesor: 0,
-        listOrder: []
-    };
-}
-
 function valueDefaultItem() {
     return {
         idProduct: 0,
@@ -277,6 +279,23 @@ function valueDefaultItem() {
         quantity: '',
         price: 0,
         subtotal: 0
+    };
+}
+
+function prepareOrder() {
+    const user = firebase.auth().currentUser;
+
+    return {
+        cliente_id: user.uid,
+        numero: `PED-${user.uid}`,
+        fecha: Date.now(),
+        subtotal: 0,
+        iva: 0,
+        total: 0,
+        enviado: 0,
+        procesado: 0,
+        asesor: user.uid,
+        listOrder: []
     };
 }
 
