@@ -1,0 +1,64 @@
+{
+    "products": [
+        {
+            "idProduct": 1,
+            "product": "MARTILLO CABEZA PLANA",
+            "stock": 1000,
+            "price": 33.23
+        },
+        {
+            "idProduct": 2,
+            "product": "PICO DE ACERO",
+            "stock": 1000,
+            "price": 765.98
+        },
+        {
+            "idProduct": 3,
+            "product": "CLAVO DE 3/4",
+            "stock": 1000,
+            "price": 3.21
+        },
+        {
+            "idProduct": 4,
+            "product": "FLEXOMETRO DE 3MTS",
+            "stock": 1000,
+            "price": 12.29
+        },
+        {
+            "idProduct": 5,
+            "product": "LLAVE DE PRESION",
+            "stock": 1000,
+            "price": 77.98
+        },
+        {
+            "idProduct": 6,
+            "product": "LENTES PROTECTOR TRANSPARENTES",
+            "stock": 1000,
+            "price": 25.76
+        },
+        {
+            "idProduct": 7,
+            "product": "PINTURA BLANCA DE AGUA 1LT",
+            "stock": 1000,
+            "price": 777.78
+        },
+        {
+            "idProduct": 8,
+            "product": "SERRUCHO",
+            "stock": 1000,
+            "price": 25.34
+        },
+        {
+            "idProduct": 9,
+            "product": "PINZA DE ELECTRICO",
+            "stock": 1000,
+            "price": 17.52
+        },
+        {
+            "idProduct": 10,
+            "product": "BOTAS ANTIDERRAPANTES",
+            "stock": 1000,
+            "price": 333.29
+        }
+    ]
+}
